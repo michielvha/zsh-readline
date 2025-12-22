@@ -31,7 +31,7 @@ Complete documentation is available in the [`docs/`](docs/) folder:
 
 1. Clone or download this repository:
 ```bash
-git clone https://github.com/yourusername/zsh-readline.git ~/.zsh-readline
+git clone https://github.com/michielvha/zsh-readline.git ~/.zsh-readline
 ```
 
 2. Add to your `.zshrc`:
@@ -49,10 +49,18 @@ plugins=(... zsh-readline)
 # Then symlink or clone to ~/.oh-my-zsh/custom/plugins/zsh-readline/
 ```
 
-#### Zinit
+#### zi (formerly zinit)
 ```zsh
-zinit load yourusername/zsh-readline
+# Using zi (recommended - zinit successor)
+zi light michielvha/zsh-readline
+
+# Or with configuration
+zi light michielvha/zsh-readline
+ZSH_READLINE_MAX_PREDICTIONS=15
+ZSH_READLINE_MIN_INPUT=2
 ```
+
+**Note:** `zi` is the successor to `zinit` (which is deprecated). The plugin is compatible with both, but `zi` is recommended.
 
 ## Configuration
 
