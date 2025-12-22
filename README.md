@@ -4,6 +4,9 @@ A Zsh plugin that provides ListView-style history predictions - displays matchin
 
 ## Features
 
+> [!NOTE]
+> This plugin is intentionally focused on history-based predictions with prefix matching. For file/completion-based predictions, zsh's built-in completion system already handles this. For fuzzy matching, see [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) - this plugin intentionally uses prefix matching to match PSReadline's behavior.
+
 - **ListView-style predictions**: Shows matching history entries in a list below your command line
 - **Real-time filtering**: Updates as you type
 - **Keyboard navigation**: Use ↑/↓ arrow keys to navigate, Enter to select
@@ -123,14 +126,4 @@ Common issues:
 
 ## Limitations
 
-- Currently only shows history-based predictions (not file/completion-based)
-- History matching is prefix-based (not fuzzy matching)
 - Performance may degrade with very large histories (>10k entries)
-
-## Contributing
-
-Contributions welcome! This is a focused plugin, so please keep changes aligned with the goal of providing ListView-style history predictions.
-
-## License
-
-MIT License - feel free to use and modify as needed.
