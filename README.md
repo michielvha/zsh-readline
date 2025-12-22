@@ -16,7 +16,7 @@ A Zsh plugin that provides ListView-style history predictions - displays matchin
 
 ## Quick Start
 
-See [QUICKSTART.md](QUICKSTART.md) for installation and basic usage.
+See [QUICKSTART.md](QUICKSTART.md) for quick installation and basic usage examples.
 
 ## Documentation
 
@@ -82,11 +82,12 @@ source ~/.zsh-readline/zsh-readline.plugin.zsh
 
 ## Usage
 
-1. Start typing a command
-2. Matching history entries appear below your command line
-3. Use ↑/↓ arrow keys to navigate the list
-4. Press Enter to select a prediction (or just continue typing)
-5. The list automatically clears when you submit the command
+1. Start typing a command - matching history entries appear below your command line
+2. Use ↑/↓ arrow keys to navigate the list
+3. Press Enter to select a prediction (or just continue typing)
+4. The list automatically clears when you submit the command
+
+See [QUICKSTART.md](QUICKSTART.md) for a quick example.
 
 ## How It Works
 
@@ -119,8 +120,8 @@ source ~/.zsh-readline/zsh-readline.plugin.zsh
 
 See [docs/troubleshooting.md](docs/troubleshooting.md) for detailed troubleshooting guide.
 
-Common issues:
-- **Predictions not showing**: Make sure history is enabled and `HISTSIZE` is set
+**Quick fixes:**
+- **Predictions not showing**: Make sure history is enabled (`setopt SHARE_HISTORY`) and `HISTSIZE` is set
 - **Arrow keys not working**: Check key bindings, some terminals use different codes
 - **Display issues**: The plugin uses `zle -M` which should work with most terminals
 
