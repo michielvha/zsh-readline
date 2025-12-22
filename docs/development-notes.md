@@ -222,14 +222,3 @@ Global state with `typeset -g` works well for widgets:
 3. **Iterate quickly:** User feedback drives better design
 4. **Keep it simple:** Simpler is more reliable
 5. **Test in real usage:** Manual testing reveals real issues
-
-## Acknowledgments
-
-This plugin was developed through iterative improvement based on:
-- User requirements
-- Real-world usage feedback
-- Bug reports and fixes
-- Trial and error with different approaches
-
-The final implementation is the result of many iterations and refinements.
-

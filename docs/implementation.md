@@ -174,14 +174,6 @@ else
 fi
 ```
 
-## Potential enhancements
-
-- File/completion-based predictions (future work)
-
-- Multi-line command handling
-
-- Color highlighting (uses `>` prefix instead for now)
-
 ## Won't be included
 - History number display (removed since it clutters the UI and servers no purpose)
 - Fuzzy matching (uses simple prefix matching instead to mimic psreadline module behaviour)
