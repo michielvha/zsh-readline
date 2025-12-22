@@ -6,4 +6,6 @@ The following enhancements should be investigated and tried:
 
 - Multi-line command handling
 
-- Color highlighting (uses `>` prefix instead for now)
+- Color highlighting (uses `>` prefix instead for now) - blue highlighted box could be a cooler way of doing this
+
+- some kind of utility that will wipe all duplicate entries from the history file to help with performance, since the plugin is searching on each stroke we want to have the file be as small as feasible.
