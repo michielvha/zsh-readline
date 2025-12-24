@@ -6,7 +6,7 @@ Get up and running with zsh-readline in 2 minutes.
 
 ### Option 1: Quick Install Script
 ```bash
-cd ~/Documents/zsh-readline
+cd ~/zsh-readline
 ./install.sh
 source ~/.zshrc
 ```
@@ -14,7 +14,7 @@ source ~/.zshrc
 ### Option 2: Manual Install
 Add to your `~/.zshrc`:
 ```zsh
-source ~/Documents/zsh-readline/zsh-readline.plugin.zsh
+source ~/zsh-readline/zsh-readline.plugin.zsh
 ```
 
 ### Option 3: Using zi (Plugin Manager)
@@ -46,7 +46,7 @@ Add before the `source` line in `.zshrc`:
 ```zsh
 ZSH_READLINE_MAX_PREDICTIONS=15
 ZSH_READLINE_MIN_INPUT=2
-source ~/Documents/zsh-readline/zsh-readline.plugin.zsh
+source ~/zsh-readline/zsh-readline.plugin.zsh
 ```
 
 ## Requirements
