@@ -2,6 +2,8 @@
 
 A Zsh plugin that provides ListView-style history predictions - displays matching history entries in a list below your command line as you type.
 
+<video src="https://github.com/user-attachments/assets/99ab1fc8-b48f-4a81-9bbc-bf4b1dfbf490" controls loop muted autoplay></video>
+
 ## Features
 
 > [!NOTE]
