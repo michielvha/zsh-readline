@@ -2,7 +2,7 @@
 
 The following enhancements should be investigated and tried:
 
-- when we select an entry from the list it is put in on the current line in terminal but not executed making it so we have to press enter twice - we should make it auto apply that when we select it from the list (this should be configurable behaviour) - verify how psreadline does this (for consistency)
+- when we select an entry from the list it is put in on the current line in terminal but not executed making it so we have to press enter twice - we should make it auto apply that when we select it from the list - this should be configurable behaviour - disable this by default but make it a possibility to configure, can help in certain workflows but could also be hindering so it would be great to offer as an optional feature
 
 - Multi-line command handling
 
