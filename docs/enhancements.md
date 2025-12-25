@@ -10,6 +10,10 @@
 
 
 - when we select an entry from the list it is not automatically added on the current line in the terminal - psreadline does this and you can still circle through all the examples that matched what it is that you actually typed in the terminal this way it will auto execute when you select the string from the listview because it is already appended to the current terminal line - I kind of like this behaviour as compoared to what we have now where you just select from the list and then when you enter it gets added to the current terminal line because this means you need to press enter twice each time....
+
+I will be sharing some screenshots that show just how psreadline does it, I also like the syntax highlighting on the string that we typed in, so that stays clear aswell... you think you can mimic this exact behaviour ?
+ 
+ 
   - we could also go another route where we optionally make it auto apply that which we selected from the list so without adding it to the current terminal line keeping it more as we have it now but this would limit us to add extra chars to the string that we selected... - this should be configurable behaviour ofcourse - disable this by default but make it a possibility to configure, can help in certain workflows but could also be hindering so it would be great to offer as an optional feature I guess - we can use ZSH_READLINE_AUTO_EXEC
 
 --- 
