@@ -58,11 +58,6 @@ plugins=(... zsh-readline)
 ```zsh
 # Using zi (recommended - zinit successor)
 zi light michielvha/zsh-readline
-
-# Or with configuration
-zi light michielvha/zsh-readline
-ZSH_READLINE_MAX_PREDICTIONS=15
-ZSH_READLINE_MIN_INPUT=2
 ```
 
 **Note:** `zi` is the successor to `zinit` (which is deprecated). The plugin is compatible with both, but `zi` is recommended.
