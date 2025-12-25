@@ -47,6 +47,7 @@ Add before the `source` line in `.zshrc`:
 ```zsh
 ZSH_READLINE_MAX_PREDICTIONS=15
 ZSH_READLINE_MIN_INPUT=2
+ZSH_READLINE_REMOVE_DUPLICATE_HISTORY_ENTRIES=1
 source ~/.zsh-readline/zsh-readline.plugin.zsh
 ```
 

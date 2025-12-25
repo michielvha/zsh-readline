@@ -58,11 +58,6 @@ plugins=(... zsh-readline)
 ```zsh
 # Using zi (recommended - zinit successor)
 zi light michielvha/zsh-readline
-
-# Or with configuration
-zi light michielvha/zsh-readline
-ZSH_READLINE_MAX_PREDICTIONS=15
-ZSH_READLINE_MIN_INPUT=2
 ```
 
 **Note:** `zi` is the successor to `zinit` (which is deprecated). The plugin is compatible with both, but `zi` is recommended.
@@ -71,14 +66,17 @@ ZSH_READLINE_MIN_INPUT=2
 
 You can customize the behavior by setting these variables before sourcing the plugin:
 
+| Option | Default | Description |
+|--------|---------|-------------|
+| `ZSH_READLINE_MAX_PREDICTIONS` | `10` | Maximum number of predictions to show in the listview |
+| `ZSH_READLINE_MIN_INPUT` | `1` | Minimum number of characters to type before showing predictions |
+| `ZSH_READLINE_REMOVE_DUPLICATE_HISTORY_ENTRIES` | `0` | Enable zsh's built-in history deduplication (removes duplicates over time, improves performance) |
+
+**Example:**
 ```zsh
-# Maximum number of predictions to show (default: 10)
 ZSH_READLINE_MAX_PREDICTIONS=15
-
-# Minimum input length before showing predictions (default: 1)
 ZSH_READLINE_MIN_INPUT=2
-
-# Then source the plugin
+ZSH_READLINE_REMOVE_DUPLICATE_HISTORY_ENTRIES=1
 source ~/.zsh-readline/zsh-readline.plugin.zsh
 ```
 

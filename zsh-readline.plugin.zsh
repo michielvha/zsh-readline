@@ -4,6 +4,14 @@
 # Configuration
 typeset -g ZSH_READLINE_MAX_PREDICTIONS=${ZSH_READLINE_MAX_PREDICTIONS:-10}
 typeset -g ZSH_READLINE_MIN_INPUT=${ZSH_READLINE_MIN_INPUT:-1}
+typeset -g ZSH_READLINE_REMOVE_DUPLICATE_HISTORY_ENTRIES=${ZSH_READLINE_REMOVE_DUPLICATE_HISTORY_ENTRIES:-0}
+
+# Configure history deduplication if enabled
+if [[ ${ZSH_READLINE_REMOVE_DUPLICATE_HISTORY_ENTRIES:-0} -eq 1 ]]; then
+    setopt HIST_IGNORE_ALL_DUPS    # Remove all previous occurrences when duplicate is added
+    setopt HIST_SAVE_NO_DUPS       # Don't write duplicates to file
+    setopt HIST_EXPIRE_DUPS_FIRST  # Remove duplicates first when trimming history
+fi
 
 # State
 typeset -g _zsh_readline_predictions=()
