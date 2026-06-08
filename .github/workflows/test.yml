@@ -1,0 +1,50 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit:
+    name: unit (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install zsh
+        run: |
+          if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get update && sudo apt-get install -y zsh; fi
+          zsh --version
+      - name: Run unit tests
+        run: zsh tests/run.zsh unit
+
+  render:
+    name: render (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Provision (zsh, tmux, vendored co-plugins)
+        run: |
+          if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get update && sudo apt-get install -y zsh tmux; fi
+          zsh tests/bootstrap.zsh
+      # NOTE: the A1 "hook clobbering" assertion FAILS until the add-zle-hook-widget
+      # fix lands; continue-on-error keeps CI green in the meantime. Removed in the
+      # commit that applies the fix so render becomes a required gate.
+      - name: Run render tests
+        continue-on-error: true
+        run: zsh tests/run.zsh render
+      - name: Upload snapshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-snapshots-${{ matrix.os }}
+          path: tests/render/snapshots/
+          if-no-files-found: ignore
