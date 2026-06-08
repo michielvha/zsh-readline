@@ -7,7 +7,7 @@ we agree on *before* writing any test code.
 
 The plugin has **zero automated tests**. "Does it render correctly?" is currently
 answered by one person looking at one terminal — which is exactly how the display
-bug behind [PR #4](pr-4-review.md) shipped (it clobbered the theme's
+bug behind [PR #4](https://github.com/michielvha/zsh-readline/pull/4) shipped (it clobbered the theme's
 `zle-line-init` hook and nobody noticed until a contributor on a different
 theme/terminal hit it).
 

@@ -35,11 +35,7 @@ jobs:
         run: |
           if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get update && sudo apt-get install -y zsh tmux; fi
           zsh tests/bootstrap.zsh
-      # NOTE: the A1 "hook clobbering" assertion FAILS until the add-zle-hook-widget
-      # fix lands; continue-on-error keeps CI green in the meantime. Removed in the
-      # commit that applies the fix so render becomes a required gate.
       - name: Run render tests
-        continue-on-error: true
         run: zsh tests/run.zsh render
       - name: Upload snapshots
         if: always()

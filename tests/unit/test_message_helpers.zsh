@@ -8,8 +8,8 @@
 # _zsh_readline__set_message calls `zle -M`/`zle -R`, which require an active
 # widget. We can't enter ZLE non-interactively, so we shadow `zle` with a stub
 # that captures the message that *would* be displayed. That lets us assert the
-# padding math (and pin the behavior of the masked `cur_lines` assignment noted
-# in docs/pr-4-review.md A2).
+# padding math (and pin the behavior of the masked `cur_lines` assignment, which
+# only round-trips because the variable is integer-typed).
 
 emulate -L zsh
 
