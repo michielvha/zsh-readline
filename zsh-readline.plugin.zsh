@@ -105,6 +105,7 @@ _zsh_readline_display() {
         all=(${(f)output})
         
         typeset -A final
+        local p
         for p in "${all[@]}"; do
             [[ -z "$p" ]] && continue
             p="${p##[[:space:]]}"
@@ -134,6 +135,7 @@ _zsh_readline_display() {
         if [[ -n "$old_selected_cmd" ]] && [[ $old_selected -lt ${#old_predictions[@]} ]]; then
             local new_idx=0
             local found=0
+            local cmd
             for cmd in "${_zsh_readline_predictions[@]}"; do
                 if [[ "$cmd" == "$old_selected_cmd" ]]; then
                     _zsh_readline_selected=$new_idx
@@ -161,6 +163,7 @@ _zsh_readline_display() {
     # Build message for zle -M
     local msg=""
     local idx=0
+    local cmd
     for cmd in "${_zsh_readline_predictions[@]}"; do
         local prefix="  "
         [[ $idx -eq $_zsh_readline_selected ]] && prefix="> "
@@ -271,10 +274,22 @@ _zsh_readline_line_finish() {
     zle -M ""
     _zsh_readline_active=0
     _zsh_readline_selected=0
+    _zsh_readline_last_input=""
+    _zsh_readline_original_input=""
 }
 
-zle -N zle-line-init _zsh_readline_line_init
-zle -N zle-line-finish _zsh_readline_line_finish
+# Register lifecycle hooks ADDITIVELY. Using `zle -N zle-line-init ...` would
+# *replace* the shared hook widget and clobber whatever a theme/prompt (oh-my-zsh,
+# powerlevel10k, zsh-autosuggestions, ...) already installed, corrupting the
+# display. add-zle-hook-widget appends to the hook list instead (needs zsh 5.3+),
+# so we fall back to the old behavior on older shells.
+if autoload -Uz add-zle-hook-widget 2>/dev/null && (( $+functions[add-zle-hook-widget] )); then
+    add-zle-hook-widget line-init   _zsh_readline_line_init
+    add-zle-hook-widget line-finish _zsh_readline_line_finish
+else
+    zle -N zle-line-init  _zsh_readline_line_init
+    zle -N zle-line-finish _zsh_readline_line_finish
+fi
 
 # Replace widgets
 if ! zle -l _zsh_readline_self_insert_orig >/dev/null 2>&1; then

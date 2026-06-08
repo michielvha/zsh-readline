@@ -98,7 +98,9 @@ See [QUICKSTART.md](QUICKSTART.md) for a quick example.
 
 ## Requirements
 
-- Zsh 5.0 or later
+- Zsh 5.0 or later (5.3+ recommended — it enables `add-zle-hook-widget`, which
+  lets the plugin coexist with themes/plugins that use their own ZLE line hooks;
+  on older zsh it falls back to a mode that can conflict with them)
 - History enabled in your `.zshrc`:
   ```zsh
   setopt SHARE_HISTORY  # or APPEND_HISTORY
